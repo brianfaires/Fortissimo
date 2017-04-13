@@ -158,16 +158,19 @@ namespace Fortissimo
             if (((RhythmGame)Game).State != RhythmGame.GameStateType.Running)
                 return;
 
+            bool onLastNote = false;
             if (Notes.SongDone)
             {
                 if (waitTimer > TimeSpan.Zero)
+                {
                     waitTimer -= gameTime.ElapsedGameTime;
+                    onLastNote = true;
+                }
                 else
                 {
                     ChangeState(RhythmGame.GameStateType.SongSuccess);
+                    return;
                 }
-
-                return;
             }
 
             if (Input.OtherKeyPressed(OtherKeyType.Pause))
@@ -182,6 +185,12 @@ namespace Fortissimo
 
             ulong pressed = Input.FullPressed;
             ulong held = Input.FullHeld;
+
+            if (onLastNote)
+            {
+                beginIndex--;
+                endIndex--;
+            }
 
             int noteRange = (endIndex - beginIndex);
             bool splitNotes = noteRange > 1;
@@ -224,7 +233,7 @@ namespace Fortissimo
                         note.Strum();
 
                     note.AddPressedGuitar(_instrument, held);
-                    goodHits = note.IsGood(_instrument, note.IsHOPO(_instrument));//Notes.NoteIndex > 0 && noteSet[Notes.NoteIndex - 1].visible[0] == SongData.NoteSet.VIS_STATE.INVISIBLE);
+                    goodHits = note.IsGood(_instrument, note.IsHOPO(_instrument)); //Notes.NoteIndex > 0 && noteSet[Notes.NoteIndex - 1].visible[0] == SongData.NoteSet.VIS_STATE.INVISIBLE);
                     bool burningBetter = (note.burning != 0L) && (goodHits > note.burning);
                     bool trueHit = goodHits > 0 && note.burning == 0L;
                     if (trueHit || burningBetter)
@@ -277,7 +286,8 @@ namespace Fortissimo
                 {
                     if (Input.Strummed && !note.IsHOPO(_instrument))
                     {
-                        DealDamage(note);
+                        if(noteIdx > 0 && noteSet[noteIdx-1].IsHOPO(_instrument) && noteSet[noteIdx-1].burning != 0L)
+                            DealDamage(note);
                         //missedNote = note; // 4.0change
                     }
                 }

@@ -430,8 +430,7 @@ namespace Fortissimo
                     bool ceaseExploding = false;
                     SongData.NoteSet n = noteSet[i];
 
-                    // TODO: Total hack for end of project... should be using
-                    //       isHOPO instead.
+                    // TODO: Total hack for end of project... should be using isHOPO instead.
                     bool isHopoNote = (noteSet[i].type & (((ulong)1) << 5)) != 0;
                     for (ulong k = 1, trueId = 0; k <= noteSet[i].type; k *= 2, trueId++)
                     {

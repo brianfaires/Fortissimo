@@ -418,7 +418,7 @@ namespace Fortissimo
 
         public override String SetupExplanation()
         {
-            return "OGG Files:\n      Place the .ogg file in the Songs directory of the game.\n      Songs must have the same name as the notes files.";
+            return "\nOGG Files:\n      Place the .ogg file in the Songs directory of the game.\n      Songs must have the same name as the notes files.";
         }
     }
 #endif

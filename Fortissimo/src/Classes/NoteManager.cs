@@ -56,7 +56,7 @@ namespace Fortissimo
     #region Note Manager Region
     public abstract class NoteManager : Microsoft.Xna.Framework.GameComponent
     {
-        const uint Pillow = 200; // How close user can be to note for it to count
+        const uint Pillow = 140; // How close user can be to note for it to count
         const uint POST_SONG_BUFFER = 3; // 4.0change; 3 seconds after song; allows for last note to be hit
 
         protected SongData.NoteSet[] _noteSet = new SongData.NoteSet[0];
@@ -346,11 +346,16 @@ namespace Fortissimo
                     NoteX curr = curMusicFile.AllNotes[trackID][difficulty][i];
                     if (curr.type != last.type && curr.time != last.time)
                     {
-                        // Make sure next note isn't at the same time slot
-                        if (i == curMusicFile.AllNotes[trackID][difficulty].Count - 1 || curr.time != curMusicFile.AllNotes[trackID][difficulty][i + 1].time)
+                        // Make sure last note is different than this one
+                        if (i > 0 && (curMusicFile.AllNotes[trackID][difficulty][i - 1].type & 0x1F) != curr.type)
                         {
+                            // Check threshold
                             if (curr.time - last.time < HOPO_Threshold)
-                                curMusicFile.AllNotes[trackID][difficulty][i].type |= (1<<5);
+                            {                  
+                                // Check that it's a single chord
+                                if (curr.type == 1 || curr.type == 2 || curr.type == 4 || curr.type == 8 || curr.type == 16)
+                                    curr.type |= (1 << 5);
+                             }
                         }
                     }
                     last = curr;

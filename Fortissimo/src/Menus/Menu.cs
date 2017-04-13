@@ -156,7 +156,7 @@ namespace Fortissimo
                 (ISpriteBatchService)Game.Services.GetService(typeof(ISpriteBatchService));
             SpriteBatch spriteBatch = spriteBatchService.SpriteBatch;
 
-            spriteBatch.Begin(SpriteSortMode.Texture, BlendState.Additive); // 4.0change
+            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend); // 4.0change
 
             if ( background != null )
                 spriteBatch.Draw(background, Vector2.Zero, Color.White);

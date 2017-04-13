@@ -1,11 +1,11 @@
-#define DEMO_MODE
+//#define DEMO_MODE
 
-// Bug fixes/Enhancements
+// Bugs/Enhancements
 //      - Last note can't be hit?! How frustrating!
 //      - HOPOs don't require an active streak
+//      - Back to back identical hold chords don't fire the second one
 //      - Silence guitar track after a hold is released
 //      - Silence ONLY the guitar track (currently muting some bass/drum lines)
-//      - Would love to have some automatic barlines
 
 
 #region Using Statements
@@ -199,10 +199,6 @@ namespace Fortissimo
 
         protected override void Update(GameTime gameTime)
         {
-            // Allows the game to exit
-            //if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-            //    this.Exit();
-
             this.gameTime = gameTime;
 
             switch (State)
