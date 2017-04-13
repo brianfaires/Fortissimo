@@ -1,0 +1,12 @@
+CodeName = LGT
+FullName = Lead Guitar
+Dimensions = THREE_DIMENSIONAL
+NumTracks = 5
+NumDrawnTracks = 5
+RPEnableType = SELECT
+ContainsHeldNotes = true
+CanWhammy = true
+CanHOPO = true
+HasSolos = true
+NeedsStrum = true
+MaxMultiplier = 4

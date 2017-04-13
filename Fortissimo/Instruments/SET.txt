@@ -1,0 +1,14 @@
+CodeName = SET
+FullName = Drum Set
+Dimensions = THREE_DIMENSIONAL
+NumTracks = 5
+NumDrawnTracks = 4
+RPEnableType = FILL
+ContainsHeldNotes = false
+CanWhammy = false
+CanHOPO = false
+HasSolos = false
+NeedsStrum = false
+MaxMultiplier = 4
+BumpNotes = 4
+Colors = 1,2,3,0,0

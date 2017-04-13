@@ -1,0 +1,13 @@
+CodeName = LVX
+FullName = Lead Vocals
+Dimensions = TWO_DIMENSIONAL
+NumTracks = 48
+NumDrawnTracks = 48
+RPEnableType = FILL
+ContainsHeldNotes = true
+CanWhammy = false
+CanHOPO = false
+HasSolos = false
+NeedsStrum = false
+MaxMultiplier = 4
+DiffSame = true

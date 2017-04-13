@@ -1,0 +1,13 @@
+CodeName = BAS
+FullName = Bass Guitar
+Dimensions = THREE_DIMENSIONAL
+NumTracks = 5
+NumDrawnTracks = 5
+RPEnableType = SELECT
+ContainsHeldNotes = true
+CanWhammy = true
+CanHOPO = true
+HasSolos = false
+NeedsStrum = true
+MaxMultiplier = 6
+OverMultiplier = Bass Groove
