@@ -1,9 +1,9 @@
-//#define DEMO_MODE
+#define DEMO_MODE
 
 // Bugs/Enhancements
-//      - Last note can't be hit?! How frustrating!
+//      - Last note can only be hit early (no buffer after the note)
 //      - HOPOs don't require an active streak
-//      - Back to back identical hold chords don't fire the second one
+//      - Back to back identical hold chords don't burn the second one
 //      - Silence guitar track after a hold is released
 //      - Silence ONLY the guitar track (currently muting some bass/drum lines)
 

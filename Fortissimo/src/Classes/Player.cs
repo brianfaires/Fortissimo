@@ -286,13 +286,16 @@ namespace Fortissimo
                 {
                     if (Input.Strummed && !note.IsHOPO(_instrument))
                     {
-                        if(noteIdx > 0 && noteSet[noteIdx-1].IsHOPO(_instrument) && noteSet[noteIdx-1].burning != 0L)
-                            DealDamage(note);
+                        if(noteIdx == 0 || !noteSet[noteIdx-1].IsHOPO(_instrument))
+                        {
+                            // 4.0change - Additionally, don't penalize when strumming immediately after a HOPO note
+                            if(noteIdx == 0 || !(noteSet[noteIdx-1].IsHOPO(_instrument) && Notes.LateRange(noteIdx-1)))
+                                DealDamage(note);
+                        }
                         //missedNote = note; // 4.0change
                     }
                 }
             }
-
 
             if (shouldIncrement)
                 Notes.IncrementPastEnd();

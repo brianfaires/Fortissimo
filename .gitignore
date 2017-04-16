@@ -1,5 +1,4 @@
 *.ogg
-Songs/
 bin/
 obj/
 *.csproj.*
