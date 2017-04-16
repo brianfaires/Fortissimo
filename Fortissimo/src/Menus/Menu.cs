@@ -523,7 +523,7 @@ namespace Fortissimo
         {
             Band band = ((RhythmGame)Game).CurrentBand;
             double score = band.GetSongScore(dataPlus.songData.info.name);
-            return dataPlus.songData.info.name + "        " + dataPlus.songData.info.artist + "              Score: " + score;
+            return dataPlus.songData.info.name + "              Score: " + score;
         }
 
         public override void Initialize()
@@ -673,7 +673,7 @@ namespace Fortissimo
                 spriteBatch.DrawString(titleFont, "Music Missing", new Vector2(150, 25), Color.Black, 0.0F, Vector2.Zero, 1.0F, SpriteEffects.None, 0F);
             if (menuFont != null)
             {
-                spriteBatch.DrawString(menuFont, "We couldn't find the music for song.\n    If you don't own the song we encourage you to go purchase it.\n    If you do own the song read below on how to insert it in the game.\n\nYou may continue to play without music.", new Vector2(50, 150), Color.Black, 0.0F, Vector2.Zero, 1.0F, SpriteEffects.None, 0F);
+                spriteBatch.DrawString(menuFont, "We couldn't find music files for this song.\n    If you don't own the song we encourage you to go purchase it.\n    If you do own the song read below on how to insert it in the game.\n\nYou may continue to play without music.", new Vector2(50, 150), Color.Black, 0.0F, Vector2.Zero, 1.0F, SpriteEffects.None, 0F);
                 spriteBatch.DrawString(menuFont, ((RhythmGame)Game).ExplainMusicPlayers(), new Vector2(50, 300), Color.Black, 0.0F, Vector2.Zero, 1.0F, SpriteEffects.None, 0F);
             }
         }
