@@ -13,8 +13,7 @@
     <XnaFrameworkVersion>v4.0</XnaFrameworkVersion>
     <XnaPlatform>Windows</XnaPlatform>
     <XnaCrossPlatformGroupID>b7ca04ee-85de-458c-8d25-b9c17f565a03</XnaCrossPlatformGroupID>
-    <ApplicationIcon>
-    </ApplicationIcon>
+    <ApplicationIcon>Game.ico</ApplicationIcon>
     <Thumbnail>
     </Thumbnail>
     <IsWebBootstrapper>false</IsWebBootstrapper>
@@ -175,7 +174,7 @@
     <Content Include="Bands\SkylineLogo.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Compile Include="Game.ico" />
+    <EmbeddedResource Include="Game.ico" />
     <Content Include="Songs\%28Don%27t Fear%29 The Reaper.mid">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
